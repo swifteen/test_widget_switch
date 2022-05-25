@@ -2,12 +2,12 @@
 #define FILE_MANAGER_WIDGET_H
 
 #include <QWidget>
-#include "BaseMainWidget.h"
+#include "basedialog.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class FileManagerWidget; }
 QT_END_NAMESPACE
 
-class FileManagerWidget : public BaseMainWidget
+class FileManagerWidget : public BaseDialog
 {
     Q_OBJECT
 

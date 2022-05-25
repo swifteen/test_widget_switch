@@ -1,4 +1,4 @@
-#include "BaseMainWidget.h"
+#include "basedialog.h"
 #include <QDebug>
 #include <QFontMetrics>
 #include <QFont>
@@ -7,21 +7,21 @@
 #include <QApplication>
 #include <QGraphicsDropShadowEffect>
 
-BaseMainWidget::BaseMainWidget(QWidget *parent) :
-    QWidget(parent,Qt::FramelessWindowHint),
+BaseDialog::BaseDialog(QWidget *parent) :
+    QDialog(parent,Qt::FramelessWindowHint),
     m_pClosePbtn(nullptr),
     m_bMousePress(false),
     m_pStatusBar(nullptr),
     m_pFuncBar(nullptr)
 {
-   setWindowModality(Qt::ApplicationModal);
-//    setAttribute(Qt::WA_TranslucentBackground);//实现圆角窗口时，需要设置的最关键属性
+//   setWindowModality(Qt::ApplicationModal);
+    setAttribute(Qt::WA_TranslucentBackground);//实现圆角窗口时，需要设置的最关键属性
     //    QGraphicsDropShadowEffect* effect = new QGraphicsDropShadowEffect();
     //    effect->setBlurRadius(20);
     //    effect->setColor(QColor(Qt::darkYellow));
     //    this->setGraphicsEffect(effect);
     this->setObjectName("BaseMainWidget");//用于qss
-    qApp->setStyleSheet("QWidget::title {"
+    qApp->setStyleSheet("QDialog::title {"
                         "height: 50px;"/*标题栏高度*/
                         "background: #1E2D5A;"/*标题栏背景色*/
                         "border-top-left-radius: 10px;"
@@ -39,8 +39,8 @@ BaseMainWidget::BaseMainWidget(QWidget *parent) :
     m_pClosePbtn = new QPushButton(this);
     m_pClosePbtn->setText("X");
     m_pClosePbtn->setObjectName("DialogCloseButton");//用于qss
-    connect(m_pClosePbtn,&QPushButton::clicked,this,&BaseMainWidget::close);
-    connect(m_pClosePbtn,&QPushButton::clicked,this,&BaseMainWidget::s_close_clicked);
+    connect(m_pClosePbtn,&QPushButton::clicked,this,&BaseDialog::close);
+    connect(m_pClosePbtn,&QPushButton::clicked,this,&BaseDialog::s_close_clicked);
     m_pClosePbtn->setStyleSheet("QPushButton#DialogCloseButton{"
                                 "min-width: 70px;"
                                 "color:white;"
@@ -62,24 +62,24 @@ BaseMainWidget::BaseMainWidget(QWidget *parent) :
                                 );
 
     m_pStatusBar = new StatusBar(this);
-    connect(m_pStatusBar,&StatusBar::sig_back_button_clicked,this,&BaseMainWidget::close);
-    connect(this,&BaseMainWidget::windowTitleChanged,m_pStatusBar,&StatusBar::s_windowTitleChanged);
+    connect(m_pStatusBar,&StatusBar::sig_back_button_clicked,this,&BaseDialog::close);
+    connect(this,&BaseDialog::windowTitleChanged,m_pStatusBar,&StatusBar::s_windowTitleChanged);
 
-    m_pFuncBar = new FuncBar(this);
+//    m_pFuncBar = new FuncBar(this);
 }
-void BaseMainWidget::s_close_clicked()
+void BaseDialog::s_close_clicked()
 {
 qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
 
 }
-void BaseMainWidget::paintEvent(QPaintEvent* event)
+void BaseDialog::paintEvent(QPaintEvent* event)
 {
     Q_UNUSED(event)
 
     QPainter p(this);
     QStyle* style = this->style();
     QRect active_area = this->rect();
-    int titlebar_height = 50;
+    int titlebar_height = 0;
 
     // Titlebar.
     QStyleOptionTitleBar t_opt;
@@ -106,12 +106,12 @@ void BaseMainWidget::paintEvent(QPaintEvent* event)
     style->drawPrimitive(QStyle::PE_Widget, &w_opt, &p, this);
 }
 
-void BaseMainWidget::closeEvent(QCloseEvent *e)
+void BaseDialog::closeEvent(QCloseEvent *e)
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
-    QWidget::closeEvent(e);
+    QDialog::closeEvent(e);
 }
-void BaseMainWidget::mousePressEvent(QMouseEvent* event)
+void BaseDialog::mousePressEvent(QMouseEvent* event)
 {
     //只能是鼠标左键移动和改变大小
     if(Qt::LeftButton == event->button())
@@ -121,15 +121,15 @@ void BaseMainWidget::mousePressEvent(QMouseEvent* event)
 
     //窗口移动距离
     m_move_point = event->globalPos() - pos();
-    QWidget::mousePressEvent(event);
+    QDialog::mousePressEvent(event);
 }
-void BaseMainWidget::mouseReleaseEvent(QMouseEvent* event)
+void BaseDialog::mouseReleaseEvent(QMouseEvent* event)
 {
     m_bMousePress = false;
-    QWidget::mouseReleaseEvent(event);
+    QDialog::mouseReleaseEvent(event);
 }
 
-void BaseMainWidget::mouseMoveEvent(QMouseEvent* event)
+void BaseDialog::mouseMoveEvent(QMouseEvent* event)
 {
     //移动窗口
     if(m_bMousePress)
@@ -137,13 +137,13 @@ void BaseMainWidget::mouseMoveEvent(QMouseEvent* event)
         QPoint move_pos = event->globalPos();
         move(move_pos - m_move_point);
     }
-    QWidget::mouseMoveEvent(event);
+    QDialog::mouseMoveEvent(event);
 }
 
-void BaseMainWidget::resizeEvent(QResizeEvent *event)
+void BaseDialog::resizeEvent(QResizeEvent *event)
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<windowTitle();
-    QWidget::resizeEvent(event);
+    QDialog::resizeEvent(event);
     return;
     //    QString strTitle = windowTitle();
     //    QString strGap = QString(" ");

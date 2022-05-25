@@ -55,12 +55,12 @@ void StatusBar::on_pushButton_2_clicked()
 bool StatusBar::eventFilter(QObject* watched, QEvent* event)
 {
 //    if (this == watched)
-    {
-        qDebug()<< __FILE__ << __FUNCTION__ << __LINE__<<watched
-                <<event<<event->type()
-               <<QApplication::focusWidget()
-              <<QApplication::activePopupWidget();
-    }
+//    {
+//        qDebug()<< __FILE__ << __FUNCTION__ << __LINE__<<watched
+//                <<event<<event->type()
+//               <<QApplication::focusWidget()
+//              <<QApplication::activePopupWidget();
+//    }
 
     return QWidget::eventFilter(watched, event);
 }

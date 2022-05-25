@@ -1,16 +1,16 @@
-#ifndef BaseMainWidget_H
-#define BaseMainWidget_H
+#ifndef BASEDIALOG_H
+#define BASEDIALOG_H
 
-#include <QWidget>
+#include <QDialog>
 #include <QPushButton>
 #include <QMouseEvent>
 #include "funcbar.h"
 #include "statusbar.h"
-class BaseMainWidget : public QWidget
+class BaseDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit BaseMainWidget(QWidget *parent = nullptr);
+    explicit BaseDialog(QWidget *parent = nullptr);
 protected:
     void resizeEvent(QResizeEvent *event);
     void paintEvent(QPaintEvent *event);

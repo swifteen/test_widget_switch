@@ -2,7 +2,7 @@
 #include "ui_setting_widget.h"
 
 SettingWidget::SettingWidget(QWidget *parent)
-    : BaseMainWidget(parent)
+    : BaseDialog(parent)
     , ui(new Ui::SettingWidget)
 {
     ui->setupUi(this);

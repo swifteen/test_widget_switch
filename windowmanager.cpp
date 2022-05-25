@@ -3,14 +3,16 @@
 #include "file_manager_widget.h "
 #include "setting_widget.h"
 #include <QApplication>
-#include "widget.h"
+//#include "widget.h"
 #include "statusbar.h"
 WindowManager::WindowManager(QObject *parent) : QObject(parent)
 {
-        Widget* w = new Widget;
-        w->show();
-        StatusBar* statusBar = new StatusBar;
-        statusBar->show();
+
+//        StatusBar* statusBar = new StatusBar;
+//        statusBar->show();
+//        Widget* w = new Widget;
+//        w->show();
+//        w->activateWindow();
     qApp->installEventFilter(this);
 }
 

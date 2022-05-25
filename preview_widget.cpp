@@ -2,7 +2,7 @@
 #include "ui_preview_widget.h"
 
 PreviewWidget::PreviewWidget(QWidget *parent)
-    : BaseMainWidget(parent)
+    : BaseDialog(parent)
     , ui(new Ui::PreviewWidget)
 {
     ui->setupUi(this);

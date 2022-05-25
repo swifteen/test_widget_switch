@@ -16,21 +16,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+basedialog.cpp \
     funcbar.cpp \
     main.cpp \
     statusbar.cpp \
-    widget.cpp \
-BaseMainWidget.cpp \
+    dialog.cpp \
 windowmanager.cpp \
 preview_widget.cpp \
 file_manager_widget.cpp \
 setting_widget.cpp
 
 HEADERS += \
+basedialog.h\
     funcbar.h \
     statusbar.h \
-    widget.h \
-BaseMainWidget.h\
+    dialog.h \
 windowmanager.h\
 preview_widget.h \
 file_manager_widget.h \
@@ -39,7 +39,7 @@ setting_widget.h
 FORMS += \
     funcbar.ui \
     statusbar.ui \
-    widget.ui\
+    dialog.ui\
 preview_widget.ui \
 file_manager_widget.ui \
 setting_widget.ui

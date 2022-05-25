@@ -2,12 +2,12 @@
 #define PREVIEW_WIDGET_H
 
 #include <QWidget>
-#include "BaseMainWidget.h"
+#include "basedialog.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class PreviewWidget; }
 QT_END_NAMESPACE
 
-class PreviewWidget : public BaseMainWidget
+class PreviewWidget : public BaseDialog
 {
     Q_OBJECT
 

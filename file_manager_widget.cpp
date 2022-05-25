@@ -2,7 +2,7 @@
 #include "ui_file_manager_widget.h"
 
 FileManagerWidget::FileManagerWidget(QWidget *parent)
-    : BaseMainWidget(parent)
+    : BaseDialog(parent)
     , ui(new Ui::FileManagerWidget)
 {
     ui->setupUi(this);

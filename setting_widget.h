@@ -2,12 +2,12 @@
 #define SETTING_WIDGET_H
 
 #include <QWidget>
-#include "BaseMainWidget.h"
+#include "basedialog.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class SettingWidget; }
 QT_END_NAMESPACE
 
-class SettingWidget : public BaseMainWidget
+class SettingWidget : public BaseDialog
 {
     Q_OBJECT
 
