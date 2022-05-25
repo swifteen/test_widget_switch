@@ -14,8 +14,9 @@ BaseMainWidget::BaseMainWidget(QWidget *parent) :
     m_pStatusBar(nullptr),
     m_pFuncBar(nullptr)
 {
-   setWindowModality(Qt::ApplicationModal);
-//    setAttribute(Qt::WA_TranslucentBackground);//实现圆角窗口时，需要设置的最关键属性
+    setWindowModality(Qt::ApplicationModal);
+    setAttribute(Qt::WA_DeleteOnClose);
+    setAttribute(Qt::WA_TranslucentBackground);//实现圆角窗口时，需要设置的最关键属性
     //    QGraphicsDropShadowEffect* effect = new QGraphicsDropShadowEffect();
     //    effect->setBlurRadius(20);
     //    effect->setColor(QColor(Qt::darkYellow));
@@ -69,7 +70,7 @@ BaseMainWidget::BaseMainWidget(QWidget *parent) :
 }
 void BaseMainWidget::s_close_clicked()
 {
-qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
 
 }
 void BaseMainWidget::paintEvent(QPaintEvent* event)

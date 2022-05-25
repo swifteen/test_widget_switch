@@ -53,18 +53,24 @@ bool WindowManager::eventFilter(QObject* watched, QEvent* event)
 
 void WindowManager::s_open_preview()
 {
-    PreviewWidget * widget = new PreviewWidget;
+    PreviewWidget*  widget = new PreviewWidget;
     widget->show();
+//    PreviewWidget  widget;
+//    widget.show();
 }
 
 void WindowManager::s_open_fileManager()
 {
     FileManagerWidget * widget = new FileManagerWidget;
     widget->show();
+//    FileManagerWidget widget;
+//    widget.show();
 }
 
 void WindowManager::s_open_setting()
 {
     SettingWidget * widget = new SettingWidget;
     widget->show();
+//    SettingWidget widget;
+//    widget.show();
 }

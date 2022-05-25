@@ -1,6 +1,6 @@
 #include "file_manager_widget.h"
 #include "ui_file_manager_widget.h"
-
+#include <QDebug>
 FileManagerWidget::FileManagerWidget(QWidget *parent)
     : BaseMainWidget(parent)
     , ui(new Ui::FileManagerWidget)
@@ -11,6 +11,7 @@ FileManagerWidget::FileManagerWidget(QWidget *parent)
 
 FileManagerWidget::~FileManagerWidget()
 {
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
     delete ui;
 }
 
