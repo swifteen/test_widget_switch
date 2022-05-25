@@ -7,10 +7,8 @@
 #include "statusbar.h"
 WindowManager::WindowManager(QObject *parent) : QObject(parent)
 {
-        Widget* w = new Widget;
-        w->show();
-        StatusBar* statusBar = new StatusBar;
-        statusBar->show();
+    Widget* w = new Widget;
+    w->show();
     qApp->installEventFilter(this);
 }
 
@@ -55,8 +53,8 @@ bool WindowManager::eventFilter(QObject* watched, QEvent* event)
 
 void WindowManager::s_open_preview()
 {
-   PreviewWidget * widget = new PreviewWidget;
-   widget->show();
+    PreviewWidget * widget = new PreviewWidget;
+    widget->show();
 }
 
 void WindowManager::s_open_fileManager()

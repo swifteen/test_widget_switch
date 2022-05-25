@@ -24,8 +24,7 @@ StatusBar::StatusBar(QWidget *parent) :
 
                   "*{color: #ff0000;}"
                   );
-//    startTimer(1000);
-    qApp->installEventFilter(this);
+    startTimer(1000);
 }
 
 StatusBar::~StatusBar()
@@ -51,16 +50,4 @@ void StatusBar::on_pushButton_clicked()
 void StatusBar::on_pushButton_2_clicked()
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
-}
-bool StatusBar::eventFilter(QObject* watched, QEvent* event)
-{
-//    if (this == watched)
-    {
-        qDebug()<< __FILE__ << __FUNCTION__ << __LINE__<<watched
-                <<event<<event->type()
-               <<QApplication::focusWidget()
-              <<QApplication::activePopupWidget();
-    }
-
-    return QWidget::eventFilter(watched, event);
 }

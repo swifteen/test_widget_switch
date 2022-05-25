@@ -94,11 +94,12 @@ void BaseMainWidget::paintEvent(QPaintEvent* event)
     //绘制标题文字
     style->drawItemText(&p, t_opt.rect, Qt::AlignCenter, t_opt.palette, true, t_opt.text, QPalette::Text);//注意参数QPalette::Text决定文字的颜色
     m_pStatusBar->setGeometry(QRect(0, 0, this->width()- m_pClosePbtn->width(), 50));
+    m_pFuncBar->setGeometry(QRect(0, this->height() - 50, this->width(), 50));
     //设置关闭按钮位置
     m_pClosePbtn->setGeometry(QRect(this->width() - m_pClosePbtn->width(), 0, m_pClosePbtn->width(), titlebar_height));
     // Background widget.
     active_area.setTopLeft(QPoint(0, titlebar_height));
-    this->setContentsMargins(0, titlebar_height, 0, 0);
+    this->setContentsMargins(0, titlebar_height, 0, 50);
 
     QStyleOption w_opt;
     w_opt.initFrom(this);//可以获取this的qss风格

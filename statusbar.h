@@ -24,7 +24,6 @@ signals:
     void sig_back_button_clicked();
 protected:
     void timerEvent(QTimerEvent *event);
-    bool eventFilter(QObject *watched, QEvent *event);
 private:
     Ui::StatusBar *ui;
 };
