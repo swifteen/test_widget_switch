@@ -14,7 +14,14 @@ class Widget : public BaseMainWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
-MainWidgetType_e mainWidgetType(){return MAIN_WIDGET_TYPE_SAMPLE;}
+protected:
+    void keyPressEvent(QKeyEvent *event);
+private slots:
+    virtual void s_func_trigger(int func_index,int index);
+private:
+    void openPatientDialog();
+    void open_fileManager();
+    void open_setting();
 private:
     Ui::Widget *ui;
 };

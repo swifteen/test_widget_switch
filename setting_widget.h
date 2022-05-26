@@ -14,7 +14,8 @@ class SettingWidget : public BaseMainWidget
 public:
     SettingWidget(QWidget *parent = nullptr);
     ~SettingWidget();
-    MainWidgetType_e mainWidgetType(){return MAIN_WIDGET_TYPE_SETTING;}
+private slots:
+    virtual void s_func_trigger(int func_index,int index);
 private:
     Ui::SettingWidget *ui;
 };

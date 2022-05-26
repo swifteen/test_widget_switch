@@ -14,7 +14,8 @@ class PreviewWidget : public BaseMainWidget
 public:
     PreviewWidget(QWidget *parent = nullptr);
     ~PreviewWidget();
-    MainWidgetType_e mainWidgetType(){return MAIN_WIDGET_TYPE_PREVIEW;}
+private slots:
+    virtual void s_func_trigger(int func_index,int index);
 private:
     Ui::PreviewWidget *ui;
 };

@@ -2,7 +2,7 @@
 #include "ui_preview_widget.h"
 #include <QDebug>
 PreviewWidget::PreviewWidget(QWidget *parent)
-    : BaseMainWidget(parent)
+    : BaseMainWidget(MAIN_WIDGET_TYPE_PREVIEW,parent)
     , ui(new Ui::PreviewWidget)
 {
     ui->setupUi(this);
@@ -13,5 +13,10 @@ PreviewWidget::~PreviewWidget()
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
     delete ui;
+}
+
+void PreviewWidget::s_func_trigger(int func_index, int index)
+{
+qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<func_index<<index;
 }
 

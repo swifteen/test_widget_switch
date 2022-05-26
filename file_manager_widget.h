@@ -14,9 +14,12 @@ class FileManagerWidget : public BaseMainWidget
 public:
     FileManagerWidget(QWidget *parent = nullptr);
     ~FileManagerWidget();
-    MainWidgetType_e mainWidgetType(){return MAIN_WIDGET_TYPE_FILE_MANAGER;}
-
+protected:
+    void keyPressEvent(QKeyEvent *event);
+private slots:
+    virtual void s_func_trigger(int func_index,int index);
 private:
     Ui::FileManagerWidget *ui;
+    void open_preview();
 };
 #endif // FILE_MANAGER_WIDGET_H

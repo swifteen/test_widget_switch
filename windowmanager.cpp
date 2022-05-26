@@ -9,7 +9,6 @@
 WindowManager::WindowManager(QObject *parent) : QObject(parent)
 {
     Widget* w = new Widget;
-    w->initFuncBarControl();
     w->show();
     qApp->installEventFilter(this);
 }
@@ -28,6 +27,7 @@ bool WindowManager::eventFilter(QObject* watched, QEvent* event)
         qDebug()<< __FILE__ << __FUNCTION__ << __LINE__<<watched
                 <<QString::number(keyEvent->key(),16)
                <<QApplication::focusWidget()<<QApplication::activePopupWidget();
+        return QObject::eventFilter(watched, event);
         Qt::Key key = static_cast<Qt::Key>(keyEvent->key());
         bool bFlag = true;
 
@@ -59,7 +59,6 @@ bool WindowManager::eventFilter(QObject* watched, QEvent* event)
 void WindowManager::s_open_preview()
 {
     PreviewWidget*  widget = new PreviewWidget;
-    widget->initFuncBarControl();
     widget->show();
 //    PreviewWidget  widget;
 //    widget.show();
@@ -68,7 +67,6 @@ void WindowManager::s_open_preview()
 void WindowManager::s_open_fileManager()
 {
     FileManagerWidget * widget = new FileManagerWidget;
-    widget->initFuncBarControl();
     widget->show();
 //    FileManagerWidget widget;
 //    widget.show();
@@ -77,7 +75,6 @@ void WindowManager::s_open_fileManager()
 void WindowManager::s_open_setting()
 {
     SettingWidget * widget = new SettingWidget;
-    widget->initFuncBarControl();
     widget->show();
 //    SettingWidget widget;
 //    widget.show();

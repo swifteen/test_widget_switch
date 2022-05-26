@@ -7,7 +7,7 @@
 #include <QApplication>
 #include <QGraphicsDropShadowEffect>
 
-BaseMainWidget::BaseMainWidget(QWidget *parent) :
+BaseMainWidget::BaseMainWidget(MainWidgetType_e mainWidgetType,QWidget *parent) :
     QWidget(parent,Qt::FramelessWindowHint),
     m_pClosePbtn(nullptr),
     m_bMousePress(false),
@@ -68,17 +68,12 @@ BaseMainWidget::BaseMainWidget(QWidget *parent) :
     connect(this,&BaseMainWidget::windowTitleChanged,m_pStatusBar,&StatusBar::s_windowTitleChanged);
 
     m_pFuncBar = new FuncBar(this);
+     connect(m_pFuncBar,&FuncBar::sig_func_trigger,this,&BaseMainWidget::s_func_trigger);
+    initFuncBarControl(mainWidgetType);
 }
 BaseMainWidget::~BaseMainWidget()
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<this<<mainWidgetType();
-}
-
-void BaseMainWidget::initFuncBarControl()
-{
-    MainWidgetType_e curMainWidgetType = mainWidgetType();
-    if(m_pFuncBar)
-        m_pFuncBar->initFuncBarControl(curMainWidgetType);
 }
 
 void BaseMainWidget::initFuncBarControl(MainWidgetType_e mainWidgetType)

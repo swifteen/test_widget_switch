@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     funcbar.cpp \
     main.cpp \
+    patient_dialog.cpp \
     statusbar.cpp \
     widget.cpp \
 BaseMainWidget.cpp \
@@ -29,6 +30,7 @@ setting_widget.cpp
 HEADERS += \
     funcbar.h \
     main_widget_def.h \
+    patient_dialog.h \
     statusbar.h \
     widget.h \
 BaseMainWidget.h\
@@ -39,6 +41,7 @@ setting_widget.h
 
 FORMS += \
     funcbar.ui \
+    patient_dialog.ui \
     statusbar.ui \
     widget.ui\
 preview_widget.ui \
