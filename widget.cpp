@@ -44,9 +44,9 @@ void Widget::keyPressEvent(QKeyEvent *event)
     BaseMainWidget::keyPressEvent(event);
 }
 
-void Widget::s_func_trigger(int func_index, int index)
+void Widget::s_func_trigger(int func_index, const QVariant& data)
 {
-    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<func_index<<index;
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<func_index<<data;
     switch(func_index)
     {
     //F1~F7键转给FuncBar处理
@@ -70,14 +70,18 @@ void Widget::s_func_trigger(int func_index, int index)
 
 void Widget::openPatientDialog()
 {
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"enter Patient_Dialog";
     Patient_Dialog dlg;
     dlg.exec();
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"exit Patient_Dialog";
 }
 
 void Widget::open_fileManager()
 {
+        qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"enter FileManagerWidget";
     FileManagerWidget * widget = new FileManagerWidget;
     widget->show();
+     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"exit FileManagerWidget";
 }
 
 void Widget::open_setting()

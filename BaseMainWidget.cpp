@@ -16,6 +16,7 @@ BaseMainWidget::BaseMainWidget(MainWidgetType_e mainWidgetType,QWidget *parent) 
 {
     setWindowModality(Qt::ApplicationModal);
     setAttribute(Qt::WA_DeleteOnClose);
+    setWindowState(Qt::WindowFullScreen);//TODO 统一设置窗口全屏属性
 //    setAttribute(Qt::WA_TranslucentBackground);//实现圆角窗口时，需要设置的最关键属性
     //    QGraphicsDropShadowEffect* effect = new QGraphicsDropShadowEffect();
     //    effect->setBlurRadius(20);
@@ -73,7 +74,7 @@ BaseMainWidget::BaseMainWidget(MainWidgetType_e mainWidgetType,QWidget *parent) 
 }
 BaseMainWidget::~BaseMainWidget()
 {
-    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<this<<mainWidgetType();
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<this;
 }
 
 void BaseMainWidget::initFuncBarControl(MainWidgetType_e mainWidgetType)
@@ -157,7 +158,7 @@ void BaseMainWidget::mouseMoveEvent(QMouseEvent* event)
 
 void BaseMainWidget::keyPressEvent(QKeyEvent *event)
 {
-    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<mainWidgetType()<<this<<event<<event->key();
+    //qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<mainWidgetType()<<this<<event<<event->key();
     QWidget::keyPressEvent(event);
 }
 

@@ -37,15 +37,18 @@ void FileManagerWidget::keyPressEvent(QKeyEvent *event)
     case Qt::Key_F7:
 
         break;
+    case Qt::Key_Escape:
+        close();
+        break;
     default:
         break;
     }
     BaseMainWidget::keyPressEvent(event);
 }
 
-void FileManagerWidget::s_func_trigger(int func_index, int index)
+void FileManagerWidget::s_func_trigger(int func_index,const  QVariant& data)
 {
-    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<func_index<<index;
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<func_index<<data;
     switch(func_index)
     {
     //F1~F7键转给FuncBar处理

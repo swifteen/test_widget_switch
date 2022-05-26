@@ -14,8 +14,10 @@ class PreviewWidget : public BaseMainWidget
 public:
     PreviewWidget(QWidget *parent = nullptr);
     ~PreviewWidget();
+protected:
+    void keyPressEvent(QKeyEvent *event);
 private slots:
-    virtual void s_func_trigger(int func_index,int index);
+    virtual void s_func_trigger(int func_index,const QVariant& data);
 private:
     Ui::PreviewWidget *ui;
 };

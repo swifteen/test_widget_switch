@@ -37,7 +37,7 @@ private slots:
     void s_combox_press_ex(int index);
     void s_combox_press(int index);
 signals:
-    void sig_func_trigger(int func_index,int index);
+    void sig_func_trigger(int func_index,const QVariant& data);
 private:
     void createSampeFuncBar();
     void createPreviewFuncBar();
