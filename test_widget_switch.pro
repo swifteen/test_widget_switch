@@ -19,8 +19,8 @@ SOURCES += \
     funcbar.cpp \
     main.cpp \
     patient_dialog.cpp \
+    sample_widget.cpp \
     statusbar.cpp \
-    widget.cpp \
 BaseMainWidget.cpp \
 windowmanager.cpp \
 preview_widget.cpp \
@@ -31,8 +31,8 @@ HEADERS += \
     funcbar.h \
     main_widget_def.h \
     patient_dialog.h \
+    sample_widget.h \
     statusbar.h \
-    widget.h \
 BaseMainWidget.h\
 windowmanager.h\
 preview_widget.h \
@@ -42,8 +42,8 @@ setting_widget.h
 FORMS += \
     funcbar.ui \
     patient_dialog.ui \
+    sample_widget.ui \
     statusbar.ui \
-    widget.ui\
 preview_widget.ui \
 file_manager_widget.ui \
 setting_widget.ui

@@ -4,11 +4,11 @@
 #include "setting_widget.h"
 #include <QApplication>
 #include <QDebug>
-#include "widget.h"
+#include "sample_widget.h"
 #include "statusbar.h"
 WindowManager::WindowManager(QObject *parent) : QObject(parent)
 {
-    Widget* w = new Widget;
+    SampleWidget* w = new SampleWidget;
     w->show();
     qApp->installEventFilter(this);
 }
