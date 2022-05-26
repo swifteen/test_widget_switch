@@ -14,6 +14,7 @@ class FileManagerWidget : public BaseMainWidget
 public:
     FileManagerWidget(QWidget *parent = nullptr);
     ~FileManagerWidget();
+    MainWidgetType_e mainWidgetType(){return MAIN_WIDGET_TYPE_FILE_MANAGER;}
 
 private:
     Ui::FileManagerWidget *ui;

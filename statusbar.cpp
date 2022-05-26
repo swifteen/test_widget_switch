@@ -7,20 +7,20 @@ StatusBar::StatusBar(QWidget *parent) :
     ui(new Ui::StatusBar)
 {
     ui->setupUi(this);
-    setStyleSheet("StatusBar{"
+    setStyleSheet("#StatusBar{"
                   "height: 50px;"/*标题栏高度*/
                   "background: #1E2D5A;"/*标题栏背景色*/
-                  "background-color: #3E81DA;"/*标题栏背景色*/
+                  "background-color: #1E2D5A;"/*标题栏背景色*/
                   "border-top-left-radius: 10px;"
                   "border-top-right-radius: 10px;}"
 
-                  "QWidget#BaseMainWidget{"
-                  "color: #00ff00;"/*标题栏文字颜色*/
-                  "font-size: 24px;"/*标题栏文字大小*/
-                  "font-weight:900;"
-                  "background: #3E81DA;"/*Dialog背景色*/
-                  "border-bottom-left-radius: 10px;"
-                  "border-bottom-right-radius: 10px;}"
+//                  "QWidget#BaseMainWidget{"
+//                  "color: #00ff00;"/*标题栏文字颜色*/
+//                  "font-size: 24px;"/*标题栏文字大小*/
+//                  "font-weight:900;"
+//                  "background: #3E81DA;"/*Dialog背景色*/
+//                  "border-bottom-left-radius: 10px;"
+//                  "border-bottom-right-radius: 10px;}"
 
                   "*{color: #ff0000;}"
                   );

@@ -14,7 +14,7 @@ class SettingWidget : public BaseMainWidget
 public:
     SettingWidget(QWidget *parent = nullptr);
     ~SettingWidget();
-
+    MainWidgetType_e mainWidgetType(){return MAIN_WIDGET_TYPE_SETTING;}
 private:
     Ui::SettingWidget *ui;
 };

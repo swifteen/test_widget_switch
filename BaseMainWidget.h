@@ -6,18 +6,29 @@
 #include <QMouseEvent>
 #include "funcbar.h"
 #include "statusbar.h"
+#include "main_widget_def.h"
+
 class BaseMainWidget : public QWidget
 {
     Q_OBJECT
+
 public:
     explicit BaseMainWidget(QWidget *parent = nullptr);
+    virtual ~BaseMainWidget();
+    virtual MainWidgetType_e mainWidgetType(){
+        return MAIN_WIDGET_TYPE_UNKNOW;
+    };
+
+    void initFuncBarControl();
 protected:
+    void initFuncBarControl(MainWidgetType_e mainWidgetType);
     void resizeEvent(QResizeEvent *event);
     void paintEvent(QPaintEvent *event);
     void closeEvent(QCloseEvent *e);
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
+    void keyPressEvent(QKeyEvent *event);
 signals:
 
 private slots:

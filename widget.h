@@ -14,7 +14,7 @@ class Widget : public BaseMainWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
-
+MainWidgetType_e mainWidgetType(){return MAIN_WIDGET_TYPE_SAMPLE;}
 private:
     Ui::Widget *ui;
 };

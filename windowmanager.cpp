@@ -3,11 +3,13 @@
 #include "file_manager_widget.h "
 #include "setting_widget.h"
 #include <QApplication>
+#include <QDebug>
 #include "widget.h"
 #include "statusbar.h"
 WindowManager::WindowManager(QObject *parent) : QObject(parent)
 {
     Widget* w = new Widget;
+    w->initFuncBarControl();
     w->show();
     qApp->installEventFilter(this);
 }
@@ -23,6 +25,9 @@ bool WindowManager::eventFilter(QObject* watched, QEvent* event)
             keyEvent->ignore();
             return false;
         }
+        qDebug()<< __FILE__ << __FUNCTION__ << __LINE__<<watched
+                <<QString::number(keyEvent->key(),16)
+               <<QApplication::focusWidget()<<QApplication::activePopupWidget();
         Qt::Key key = static_cast<Qt::Key>(keyEvent->key());
         bool bFlag = true;
 
@@ -42,10 +47,10 @@ bool WindowManager::eventFilter(QObject* watched, QEvent* event)
             break;
         }
 
-        if (bFlag)
-        {
-            return bFlag;//返回true,代表该事件已经处理，不再向上冒泡
-        }
+//        if (bFlag)
+//        {
+//            return bFlag;//返回true,代表该事件已经处理，不再向上冒泡
+//        }
     }
 
     return QObject::eventFilter(watched, event);
@@ -54,6 +59,7 @@ bool WindowManager::eventFilter(QObject* watched, QEvent* event)
 void WindowManager::s_open_preview()
 {
     PreviewWidget*  widget = new PreviewWidget;
+    widget->initFuncBarControl();
     widget->show();
 //    PreviewWidget  widget;
 //    widget.show();
@@ -62,6 +68,7 @@ void WindowManager::s_open_preview()
 void WindowManager::s_open_fileManager()
 {
     FileManagerWidget * widget = new FileManagerWidget;
+    widget->initFuncBarControl();
     widget->show();
 //    FileManagerWidget widget;
 //    widget.show();
@@ -70,6 +77,7 @@ void WindowManager::s_open_fileManager()
 void WindowManager::s_open_setting()
 {
     SettingWidget * widget = new SettingWidget;
+    widget->initFuncBarControl();
     widget->show();
 //    SettingWidget widget;
 //    widget.show();

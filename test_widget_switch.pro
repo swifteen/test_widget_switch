@@ -28,6 +28,7 @@ setting_widget.cpp
 
 HEADERS += \
     funcbar.h \
+    main_widget_def.h \
     statusbar.h \
     widget.h \
 BaseMainWidget.h\

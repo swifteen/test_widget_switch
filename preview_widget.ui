@@ -16,6 +16,11 @@
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
     <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <pointsize>32</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>PreviewWidget</string>
      </property>

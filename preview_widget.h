@@ -14,7 +14,7 @@ class PreviewWidget : public BaseMainWidget
 public:
     PreviewWidget(QWidget *parent = nullptr);
     ~PreviewWidget();
-
+    MainWidgetType_e mainWidgetType(){return MAIN_WIDGET_TYPE_PREVIEW;}
 private:
     Ui::PreviewWidget *ui;
 };
