@@ -2,10 +2,11 @@
 #include "ui_patient_dialog.h"
 #include <QDebug>
 Patient_Dialog::Patient_Dialog(QWidget *parent) :
-    QDialog(parent),
+    BaseDialog(parent),
     ui(new Ui::Patient_Dialog)
 {
     ui->setupUi(this);
+	setWindowTitle("long long \n test title");
 }
 
 Patient_Dialog::~Patient_Dialog()

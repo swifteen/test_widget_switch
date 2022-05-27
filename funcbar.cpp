@@ -15,16 +15,16 @@ FuncBar::~FuncBar()
     delete ui;
 }
 
-void FuncBar::initFuncBarControl(MainWidgetType_e mainWidgetType)
+void FuncBar::initFuncBarControl(MainDialogType_e mainWidgetType)
 {
     switch (mainWidgetType) {
-    case MAIN_WIDGET_TYPE_SAMPLE:
+    case MAIN_DIALOG_TYPE_SAMPLE:
         createSampeFuncBar();
         break;
-    case MAIN_WIDGET_TYPE_PREVIEW:
+    case MAIN_DIALOG_TYPE_PREVIEW:
         createPreviewFuncBar();
         break;
-    case MAIN_WIDGET_TYPE_FILE_MANAGER:
+    case MAIN_DIALOG_TYPE_FILE_MANAGER:
         createFileManagerFuncBar();
         break;
     default:
@@ -82,11 +82,10 @@ void FuncBar::createPreviewFuncBar()
 
 void FuncBar::createFileManagerFuncBar()
 {
-    QAbstractButton* btn = NULL;
-    btn = add_button(tr("预览"),FUNC_BAR_F1);
-    btn = add_button(tr("上一页"),FUNC_BAR_F2);
-    btn = add_button(tr("下一页"),FUNC_BAR_F3);
-    btn = add_button(tr("删除"),FUNC_BAR_F4);
+    add_button(tr("预览"),FUNC_BAR_F1);
+    add_button(tr("上一页"),FUNC_BAR_F2);
+    add_button(tr("下一页"),FUNC_BAR_F3);
+    add_button(tr("删除"),FUNC_BAR_F4);
     QStringList textLists;
     textLists.clear();
     textLists << tr("本地") << "SD" <<tr("U盘");
@@ -99,10 +98,9 @@ void FuncBar::createFileManagerFuncBar()
         storage_menu->addAction(action);
 
     }
-    btn = add_toolButton(storage_menu,tr("存储"),FUNC_BAR_F6);
+    add_toolButton(storage_menu,tr("存储"),FUNC_BAR_F6);
     //添加远程诊断按钮
-    btn = add_button(tr("刷新"),FUNC_BAR_F7);
-
+    add_button(tr("刷新"),FUNC_BAR_F7);
 }
 void FuncBar::s_pbtn_click()
 {

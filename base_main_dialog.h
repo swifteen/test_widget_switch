@@ -1,20 +1,20 @@
-#ifndef BaseMainWidget_H
-#define BaseMainWidget_H
+#ifndef BaseMainDialog_H
+#define BaseMainDialog_H
 
-#include <QWidget>
+#include <QDialog>
 #include <QPushButton>
 #include <QMouseEvent>
 #include "funcbar.h"
 #include "statusbar.h"
-#include "main_widget_def.h"
+#include "main_dialog_def.h"
 
-class BaseMainWidget : public QWidget
+class BaseMainDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit BaseMainWidget(MainWidgetType_e mainWidgetType,QWidget *parent = nullptr);
-    virtual ~BaseMainWidget();
+    explicit BaseMainDialog(MainDialogType_e mainWidgetType,QWidget *parent = nullptr);
+    virtual ~BaseMainDialog();
 protected:
     void resizeEvent(QResizeEvent *event);
     void paintEvent(QPaintEvent *event);
@@ -24,7 +24,7 @@ protected:
     void mouseMoveEvent(QMouseEvent *event);
     void keyPressEvent(QKeyEvent *event);
 private:
-    void initFuncBarControl(MainWidgetType_e mainWidgetType);
+    void initFuncBarControl(MainDialogType_e mainWidgetType);
 private slots:
     void s_close_clicked();
     virtual void s_func_trigger(int func_index,const QVariant& data) = 0;
@@ -36,4 +36,4 @@ private:
     FuncBar* m_pFuncBar;
 };
 
-#endif // BaseMainWidget_H
+#endif // BaseMainDialog_H

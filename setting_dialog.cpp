@@ -1,21 +1,21 @@
-#include "setting_widget.h"
-#include "ui_setting_widget.h"
+#include "setting_dialog.h"
+#include "ui_setting_dialog.h"
 #include <QDebug>
-SettingWidget::SettingWidget(QWidget *parent)
-    : BaseMainWidget(MAIN_WIDGET_TYPE_SETTING,parent)
-    , ui(new Ui::SettingWidget)
+SettingDialog::SettingDialog(QWidget *parent)
+    : BaseMainDialog(MAIN_DIALOG_TYPE_SETTING,parent)
+    , ui(new Ui::SettingDialog)
 {
     ui->setupUi(this);
-    setWindowTitle("SettingWidget");
+    setWindowTitle("SettingDialog");
 }
 
-SettingWidget::~SettingWidget()
+SettingDialog::~SettingDialog()
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
     delete ui;
 }
 
-void SettingWidget::keyPressEvent(QKeyEvent *event)
+void SettingDialog::keyPressEvent(QKeyEvent *event)
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<this<<event<<event->key();
     Qt::Key key = static_cast<Qt::Key>(event->key());
@@ -41,10 +41,10 @@ void SettingWidget::keyPressEvent(QKeyEvent *event)
     default:
         break;
     }
-    BaseMainWidget::keyPressEvent(event);
+    BaseMainDialog::keyPressEvent(event);
 }
 
-void SettingWidget::s_func_trigger(int func_index,const QVariant& data)
+void SettingDialog::s_func_trigger(int func_index,const QVariant& data)
 {
 qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<func_index<<data;
 }

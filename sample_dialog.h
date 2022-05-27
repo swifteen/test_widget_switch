@@ -1,19 +1,19 @@
-#ifndef WIDGET_H
-#define WIDGET_H
+#ifndef SAMPLE_DIALOG_H
+#define SAMPLE_DIALOG_H
 
 #include <QWidget>
-#include "BaseMainWidget.h"
+#include "base_main_dialog.h"
 QT_BEGIN_NAMESPACE
-namespace Ui { class Widget; }
+namespace Ui { class SampleDialog; }
 QT_END_NAMESPACE
 
-class SampleWidget : public BaseMainWidget
+class SampleDialog : public BaseMainDialog
 {
     Q_OBJECT
 
 public:
-    SampleWidget(QWidget *parent = nullptr);
-    ~SampleWidget();
+    SampleDialog(QWidget *parent = nullptr);
+    ~SampleDialog();
 protected:
     void keyPressEvent(QKeyEvent *event);
 private slots:
@@ -23,6 +23,6 @@ private:
     void open_fileManager();
     void open_setting();
 private:
-    Ui::Widget *ui;
+    Ui::SampleDialog *ui;
 };
-#endif // WIDGET_H
+#endif // SAMPLE_DIALOG_H

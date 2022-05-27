@@ -1,11 +1,11 @@
-#include "sample_widget.h"
+#include "sample_dialog.h"
 
 #include <QApplication>
-#include "windowmanager.h"
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    SampleWidget w;
-    w.show();
+    SampleDialog w;
+    w.exec();
     return a.exec();
 }

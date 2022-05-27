@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SettingWidget</class>
- <widget class="QWidget" name="SettingWidget">
+ <class>PreviewDialog</class>
+ <widget class="QDialog" name="PreviewDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,19 +10,19 @@
     <height>600</height>
    </rect>
   </property>
-  <property name="font">
-   <font>
-    <pointsize>32</pointsize>
-   </font>
-  </property>
   <property name="windowTitle">
    <string>Widget</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
     <widget class="QLabel" name="label">
+     <property name="font">
+      <font>
+       <pointsize>32</pointsize>
+      </font>
+     </property>
      <property name="text">
-      <string>SettingWidget</string>
+      <string>PreviewDialog</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

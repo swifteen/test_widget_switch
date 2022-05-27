@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>640</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,6 +23,9 @@
      </property>
      <property name="text">
       <string>Patient</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </item>

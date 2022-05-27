@@ -1,13 +1,13 @@
 #ifndef PATIENT_DIALOG_H
 #define PATIENT_DIALOG_H
 
-#include <QDialog>
+#include "base_dialog.h"
 
 namespace Ui {
 class Patient_Dialog;
 }
 
-class Patient_Dialog : public QDialog
+class Patient_Dialog : public BaseDialog
 {
     Q_OBJECT
 

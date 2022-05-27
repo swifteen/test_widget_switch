@@ -1,31 +1,28 @@
-#include "file_manager_widget.h"
-#include "ui_file_manager_widget.h"
+#include "preview_dialog.h"
+#include "ui_preview_dialog.h"
 #include <QDebug>
-#include "preview_widget.h"
-FileManagerWidget::FileManagerWidget(QWidget *parent)
-    : BaseMainWidget(MAIN_WIDGET_TYPE_FILE_MANAGER,parent)
-    , ui(new Ui::FileManagerWidget)
+PreviewDialog::PreviewDialog(QWidget *parent)
+    : BaseMainDialog(MAIN_DIALOG_TYPE_PREVIEW,parent)
+    , ui(new Ui::PreviewDialog)
 {
     ui->setupUi(this);
-    setWindowTitle("FileManagerWidget");
+    setWindowTitle("PreviewDialog");
 }
 
-FileManagerWidget::~FileManagerWidget()
+PreviewDialog::~PreviewDialog()
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
     delete ui;
 }
-
-void FileManagerWidget::keyPressEvent(QKeyEvent *event)
+void PreviewDialog::keyPressEvent(QKeyEvent *event)
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<this<<event<<event->key();
     Qt::Key key = static_cast<Qt::Key>(event->key());
 
     switch(key)
     {
-    //F1~F7键转给FuncBar处理
     case Qt::Key_F1:
-        open_preview();
+
         break;
     case Qt::Key_F2:
     case Qt::Key_F3:
@@ -43,17 +40,15 @@ void FileManagerWidget::keyPressEvent(QKeyEvent *event)
     default:
         break;
     }
-    BaseMainWidget::keyPressEvent(event);
+    BaseMainDialog::keyPressEvent(event);
 }
-
-void FileManagerWidget::s_func_trigger(int func_index,const  QVariant& data)
+void PreviewDialog::s_func_trigger(int func_index,const QVariant& data)
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<func_index<<data;
     switch(func_index)
     {
-    //F1~F7键转给FuncBar处理
     case FuncBar::FUNC_BAR_F1:
-        open_preview();
+
         break;
     case FuncBar::FUNC_BAR_F2:
     case FuncBar::FUNC_BAR_F3:
@@ -69,8 +64,4 @@ void FileManagerWidget::s_func_trigger(int func_index,const  QVariant& data)
         break;
     }
 }
-void FileManagerWidget::open_preview()
-{
-    PreviewWidget*  widget = new PreviewWidget;
-    widget->show();
-}
+

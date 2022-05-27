@@ -14,7 +14,7 @@ StatusBar::StatusBar(QWidget *parent) :
                   "border-top-left-radius: 10px;"
                   "border-top-right-radius: 10px;}"
 
-//                  "QWidget#BaseMainWidget{"
+//                  "QWidget#BaseMainDialog{"
 //                  "color: #00ff00;"/*标题栏文字颜色*/
 //                  "font-size: 24px;"/*标题栏文字大小*/
 //                  "font-weight:900;"
@@ -33,6 +33,7 @@ StatusBar::~StatusBar()
 }
 void StatusBar::timerEvent(QTimerEvent* event)
 {
+	Q_UNUSED(event)
     QString str = QDateTime::currentDateTime().toString("yyyy-MM-dd\nhh:mm:ss");
     ui->label_time->setText(str);
 }

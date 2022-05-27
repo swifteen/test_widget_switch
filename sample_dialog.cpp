@@ -1,23 +1,24 @@
-#include "sample_widget.h"
-#include "ui_widget.h"
+#include "sample_dialog.h"
+#include "ui_sample_dialog.h"
 #include <QDebug>
 #include "patient_dialog.h"
-#include "file_manager_widget.h "
-#include "setting_widget.h"
-SampleWidget::SampleWidget(QWidget *parent)
-    : BaseMainWidget(MAIN_WIDGET_TYPE_SAMPLE,parent)
-    , ui(new Ui::Widget)
+#include "file_manager_dialog.h"
+#include "setting_dialog.h"
+
+SampleDialog::SampleDialog(QWidget *parent)
+    : BaseMainDialog(MAIN_DIALOG_TYPE_SAMPLE,parent)
+    , ui(new Ui::SampleDialog)
 {
     ui->setupUi(this);
 }
 
-SampleWidget::~SampleWidget()
+SampleDialog::~SampleDialog()
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
     delete ui;
 }
 
-void SampleWidget::keyPressEvent(QKeyEvent *event)
+void SampleDialog::keyPressEvent(QKeyEvent *event)
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<this<<event<<event->key();
     Qt::Key key = static_cast<Qt::Key>(event->key());
@@ -41,10 +42,10 @@ void SampleWidget::keyPressEvent(QKeyEvent *event)
     default:
         break;
     }
-    BaseMainWidget::keyPressEvent(event);
+    BaseMainDialog::keyPressEvent(event);
 }
 
-void SampleWidget::s_func_trigger(int func_index, const QVariant& data)
+void SampleDialog::s_func_trigger(int func_index, const QVariant& data)
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<func_index<<data;
     switch(func_index)
@@ -68,7 +69,7 @@ void SampleWidget::s_func_trigger(int func_index, const QVariant& data)
     }
 }
 
-void SampleWidget::openPatientDialog()
+void SampleDialog::openPatientDialog()
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"enter Patient_Dialog";
     Patient_Dialog dlg;
@@ -76,16 +77,16 @@ void SampleWidget::openPatientDialog()
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"exit Patient_Dialog";
 }
 
-void SampleWidget::open_fileManager()
+void SampleDialog::open_fileManager()
 {
-        qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"enter FileManagerWidget";
-    FileManagerWidget * widget = new FileManagerWidget;
-    widget->show();
-     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"exit FileManagerWidget";
+        qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"enter FileManagerDialog";
+    FileManagerDialog dlg;
+    dlg.exec();
+     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"exit FileManagerDialog";
 }
 
-void SampleWidget::open_setting()
+void SampleDialog::open_setting()
 {
-    SettingWidget * widget = new SettingWidget;
-    widget->show();
+    SettingDialog dlg;
+    dlg.exec();
 }

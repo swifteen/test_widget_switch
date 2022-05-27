@@ -7,7 +7,7 @@
 #include <QMenu>
 #include <QStyledItemDelegate>
 #include <QToolButton>
-#include "main_widget_def.h"
+#include "main_dialog_def.h"
 namespace Ui {
 class FuncBar;
 }
@@ -29,7 +29,7 @@ public:
 public:
     explicit FuncBar(QWidget *parent = nullptr);
     ~FuncBar();
-    void initFuncBarControl(MainWidgetType_e mainWidgetType);
+    void initFuncBarControl(MainDialogType_e mainWidgetType);
 private slots:
     void s_pbtn_click();
 
