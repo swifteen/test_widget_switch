@@ -27,17 +27,13 @@ void SampleDialog::keyPressEvent(QKeyEvent *event)
     {
     //F1~F7键转给FuncBar处理
     case Qt::Key_F1:
-        openPatientDialog();
-        break;
     case Qt::Key_F2:
     case Qt::Key_F3:
     case Qt::Key_F4:
     case Qt::Key_F5:
     case Qt::Key_F6:
-        open_fileManager();
-        break;
     case Qt::Key_F7:
-        open_setting();
+		handleKeyPressEvent(key);
         break;
     default:
         break;

@@ -25,17 +25,13 @@ void FileManagerDialog::keyPressEvent(QKeyEvent *event)
     {
     //F1~F7键转给FuncBar处理
     case Qt::Key_F1:
-        open_preview();
-        break;
     case Qt::Key_F2:
     case Qt::Key_F3:
     case Qt::Key_F4:
     case Qt::Key_F5:
     case Qt::Key_F6:
-
-        break;
     case Qt::Key_F7:
-
+		handleKeyPressEvent(key);
         break;
     case Qt::Key_Escape:
         close();

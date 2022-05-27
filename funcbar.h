@@ -29,16 +29,17 @@ public:
 public:
     explicit FuncBar(QWidget *parent = nullptr);
     ~FuncBar();
+	void handleKeyPressEvent(Qt::Key key);		
     void initFuncBarControl(MainDialogType_e mainWidgetType);
 private slots:
     void s_pbtn_click();
-
     void s_toolButton_triggered(QAction *action);
     void s_combox_press_ex(int index);
     void s_combox_press(int index);
 signals:
     void sig_func_trigger(int func_index,const QVariant& data);
 private:
+	void handleCrtlPress(int func_index);
     void createSampeFuncBar();
     void createPreviewFuncBar();
     void createFileManagerFuncBar();

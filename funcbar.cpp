@@ -15,6 +15,97 @@ FuncBar::~FuncBar()
     delete ui;
 }
 
+void FuncBar::handleKeyPressEvent(Qt::Key key)
+{
+    switch(key)
+    {
+        case Qt::Key_F1:
+            handleCrtlPress(FUNC_BAR_F1);
+            break;
+
+        case Qt::Key_F2:
+            handleCrtlPress(FUNC_BAR_F2);
+            break;
+
+        case Qt::Key_F3:
+            handleCrtlPress(FUNC_BAR_F3);
+            break;
+
+        case Qt::Key_F14://F4
+            handleCrtlPress(FUNC_BAR_F4);
+            break;
+
+        case Qt::Key_F5:
+            handleCrtlPress(FUNC_BAR_F5);
+            break;
+
+        case Qt::Key_F6:
+            handleCrtlPress(FUNC_BAR_F6);
+            break;
+
+        case Qt::Key_F7:
+            handleCrtlPress(FUNC_BAR_F7);
+            break;
+
+        default:
+            break;
+    }
+}
+
+void FuncBar::handleCrtlPress(int func_index)
+{
+	int count = layout()->count();
+    for(int i = 0; i < count; ++i)
+    {
+        QWidget* w = layout()->itemAt(i)->widget();
+        //combobox
+        QComboBox* pCbox = qobject_cast<QComboBox*>(w);
+
+        if((pCbox) &&(pCbox->isEnabled()))
+        {
+            if(func_index == pCbox->objectName().toInt())
+            {
+                int index = pCbox->currentIndex();
+                index++;
+
+                if(index > pCbox->count() - 1)
+                {
+                    index=0;
+                }
+
+                pCbox->setCurrentIndex(index);
+                pCbox->setFocus();
+                break;
+            }
+        }
+
+        //按钮
+        QPushButton* pBtn = qobject_cast<QPushButton*>(w);
+
+        if((pBtn) &&(pBtn->isEnabled()))
+        {
+            if(func_index == pBtn->objectName().toInt())
+            {
+                pBtn->setFocus();
+                emit sig_func_trigger(func_index,0);
+                break;
+            }
+        }
+
+        //ToolButton
+        QToolButton* tBtn = qobject_cast<QToolButton*>(w);
+
+        if((tBtn) &&(tBtn->isEnabled()))
+        {
+            if(func_index == tBtn->objectName().toInt())
+            {
+                tBtn->showMenu();
+                break;
+            }
+        }
+    }
+}
+
 void FuncBar::initFuncBarControl(MainDialogType_e mainWidgetType)
 {
     switch (mainWidgetType) {

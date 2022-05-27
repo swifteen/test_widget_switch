@@ -12,6 +12,7 @@ BaseMainDialog::BaseMainDialog(MainDialogType_e mainWidgetType,QWidget *parent) 
     m_pStatusBar(nullptr),
     m_pFuncBar(nullptr)
 {
+	setFixedSize(1024,768);
     setWindowModality(Qt::ApplicationModal);
     //setAttribute(Qt::WA_DeleteOnClose);
     //setWindowState(Qt::WindowFullScreen);//TODO 统一设置窗口全屏属性
@@ -51,6 +52,13 @@ void BaseMainDialog::initFuncBarControl(MainDialogType_e mainWidgetType)
     if(m_pFuncBar)
         m_pFuncBar->initFuncBarControl(mainWidgetType);
 }
+
+void BaseMainDialog::handleKeyPressEvent(Qt::Key key)
+{
+    if(m_pFuncBar)
+        m_pFuncBar->handleKeyPressEvent(key);
+}
+
 void BaseMainDialog::s_close_clicked()
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
