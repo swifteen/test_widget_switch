@@ -7,7 +7,7 @@ FuncBar::FuncBar(QWidget *parent) :
     ui(new Ui::FuncBar)
 {
     ui->setupUi(this);
-    setStyleSheet("*{color: #ff0000;}");
+    setStyleSheet("*{color: #ff0000;} *{font: normal 36px “微软雅黑”;} QAbstractButton,QLabel{min-height: 50px;}");
 }
 
 FuncBar::~FuncBar()
@@ -124,7 +124,7 @@ void FuncBar::initFuncBarControl(MainDialogType_e mainWidgetType)
     }
 
     layout()->setSpacing(10);//设置按钮之间的间距
-    layout()->setContentsMargins(48,3,48,3);
+    layout()->setContentsMargins(48,0,48,3);
 }
 
 void FuncBar::createSampeFuncBar()
@@ -227,7 +227,7 @@ QAbstractButton* FuncBar::add_button(const QString& text,int func_index)
     btn->setText(text);
     QString object_name = QString::number(func_index);
     btn->setObjectName(object_name);
-    btn->setFixedHeight(42);
+    btn->setFixedHeight(45);
     connect(btn,SIGNAL(clicked(bool)),this,SLOT(s_pbtn_click()));
 
     layout()->addWidget(btn);
@@ -247,7 +247,7 @@ QComboBox* FuncBar::add_combobox(QStringList& value,int index,int func_index)
     }
 
     cbox->setItemDelegate(new QStyledItemDelegate());
-    cbox->setFixedHeight(42);
+    cbox->setFixedHeight(45);
     connect(cbox,SIGNAL(currentIndexChanged(int)),this,SLOT(s_combox_press(int)));
 
     layout()->addWidget(cbox);
@@ -267,7 +267,7 @@ QComboBox* FuncBar::add_combobox_ex(QStringList& value,int index,int func_index)
     }
 
     cbox->setItemDelegate(new QStyledItemDelegate());
-    cbox->setFixedHeight(42);
+    cbox->setFixedHeight(45);
     connect(cbox,SIGNAL(currentIndexChanged(int)),this,SLOT(s_combox_press_ex(int)));
 
     layout()->addWidget(cbox);
@@ -297,7 +297,7 @@ QAbstractButton* FuncBar::add_toolButton(QMenu* menu,QString text,int func_index
     btn->setText(text);
     btn->setMinimumWidth(120);
     //cbox->setItemDelegate(new QStyledItemDelegate());
-    btn->setFixedHeight(42);
+    btn->setFixedHeight(45);
     layout()->addWidget(btn);
     return btn;
 }

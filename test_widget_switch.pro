@@ -20,6 +20,7 @@ SOURCES += \
 				funcbar.cpp \
 				main.cpp \
 				base_dialog.cpp \
+                                datetime_dialog.cpp \
 				patient_dialog.cpp \
 				base_main_dialog.cpp \
 				sample_dialog.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
 				funcbar.h \
 				statusbar.h \
 				base_dialog.h \
+                                datetime_dialog.h \
 				patient_dialog.h \        
 				main_dialog_def.h \
 				base_main_dialog.h\
@@ -44,6 +46,7 @@ FORMS += \
 				funcbar.ui \
 				statusbar.ui \
 				patient_dialog.ui \
+                                datetime_dialog.ui \
 				sample_dialog.ui \
 				preview_dialog.ui \
 				file_manager_dialog.ui \

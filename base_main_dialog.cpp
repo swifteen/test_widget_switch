@@ -12,7 +12,7 @@ BaseMainDialog::BaseMainDialog(MainDialogType_e mainWidgetType,QWidget *parent) 
     m_pStatusBar(nullptr),
     m_pFuncBar(nullptr)
 {
-	setFixedSize(1024,768);
+    setFixedSize(1920,1080);
     setWindowModality(Qt::ApplicationModal);
     //setAttribute(Qt::WA_DeleteOnClose);
     //setWindowState(Qt::WindowFullScreen);//TODO 统一设置窗口全屏属性

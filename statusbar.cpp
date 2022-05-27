@@ -2,6 +2,7 @@
 #include "ui_statusbar.h"
 #include <QDebug>
 #include <QDateTime>
+#include "datetime_dialog.h"
 StatusBar::StatusBar(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::StatusBar)
@@ -21,9 +22,12 @@ StatusBar::StatusBar(QWidget *parent) :
                   //                  "background: #3E81DA;"/*Dialog背景色*/
                   //                  "border-bottom-left-radius: 10px;"
                   //                  "border-bottom-right-radius: 10px;}"
-
+                "QPushButton,QLabel{min-height: 50px;}"
                   "*{color: #ff0000;}"
+                  "*{font: normal 24px “微软雅黑”;}"
                   );
+    QString str = QDateTime::currentDateTime().toString("yyyy-MM-dd\nhh:mm:ss");
+    ui->label_time->setText(str);
     startTimer(1000);
 }
 
@@ -51,4 +55,6 @@ void StatusBar::on_pushButton_clicked()
 void StatusBar::on_pushButton_2_clicked()
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
+    DateTimeDialog dlg;
+    dlg.exec();
 }
