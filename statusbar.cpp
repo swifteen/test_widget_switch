@@ -15,12 +15,12 @@ StatusBar::StatusBar(QWidget *parent) :
                   "border-top-right-radius: 10px;}"
 
 //                  "QWidget#BaseMainDialog{"
-//                  "color: #00ff00;"/*标题栏文字颜色*/
-//                  "font-size: 24px;"/*标题栏文字大小*/
-//                  "font-weight:900;"
-//                  "background: #3E81DA;"/*Dialog背景色*/
-//                  "border-bottom-left-radius: 10px;"
-//                  "border-bottom-right-radius: 10px;}"
+                  //                  "color: #00ff00;"/*标题栏文字颜色*/
+                  //                  "font-size: 24px;"/*标题栏文字大小*/
+                  //                  "font-weight:900;"
+                  //                  "background: #3E81DA;"/*Dialog背景色*/
+                  //                  "border-bottom-left-radius: 10px;"
+                  //                  "border-bottom-right-radius: 10px;}"
 
                   "*{color: #ff0000;}"
                   );
@@ -33,7 +33,7 @@ StatusBar::~StatusBar()
 }
 void StatusBar::timerEvent(QTimerEvent* event)
 {
-	Q_UNUSED(event)
+    Q_UNUSED(event)
     QString str = QDateTime::currentDateTime().toString("yyyy-MM-dd\nhh:mm:ss");
     ui->label_time->setText(str);
 }

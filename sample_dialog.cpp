@@ -79,10 +79,10 @@ void SampleDialog::openPatientDialog()
 
 void SampleDialog::open_fileManager()
 {
-        qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"enter FileManagerDialog";
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"enter FileManagerDialog";
     FileManagerDialog dlg;
     dlg.exec();
-     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"exit FileManagerDialog";
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"exit FileManagerDialog";
 }
 
 void SampleDialog::open_setting()

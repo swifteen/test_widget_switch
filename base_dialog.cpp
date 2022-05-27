@@ -5,29 +5,23 @@
 #include <QPainter>
 #include <QStyleOptionTitleBar>
 #include <QApplication>
-#include <QGraphicsDropShadowEffect>
+
 BaseDialog::BaseDialog(QWidget *parent) : QDialog(parent,Qt::FramelessWindowHint)
 {
     setAttribute(Qt::WA_TranslucentBackground);//实现圆角窗口时，需要设置的最关键属性
-    //    QGraphicsDropShadowEffect* effect = new QGraphicsDropShadowEffect();
-    //    effect->setBlurRadius(20);
-    //    effect->setColor(QColor(Qt::darkYellow));
-    //    this->setGraphicsEffect(effect);
-    this->setObjectName("BaseDialog");//用于qss
-    qApp->setStyleSheet("QDialog::title {"
+    setObjectName("BaseDialog");//用于qss
+    setStyleSheet("QDialog::title {"
                         "height: 50px;"/*标题栏高度*/
-                        "background: #1E2D5A;"/*标题栏背景色*/
-                        "border-top-left-radius: 10px;"
+                  "background: #1E2D5A;"/*标题栏背景色*/
+                  "border-top-left-radius: 10px;"
                         "border-top-right-radius: 10px;}"
 
-#if 1
                         "QDialog#BaseDialog{"
                         "color: #00ff00;"/*标题栏文字颜色*/
-                        "font-size: 24px;"/*标题栏文字大小*/
-                        "background: #00FF00;"/*Dialog背景色*/
-                        "border-bottom-left-radius: 10px;"
+                  "font-size: 24px;"/*标题栏文字大小*/
+                  "background: #00FF00;"/*Dialog背景色*/
+                  "border-bottom-left-radius: 10px;"
                         "border-bottom-right-radius: 10px;}"
-#endif
                         );
     //初始化关闭按钮
     m_pClosePbtn = new QPushButton(this);
@@ -80,7 +74,7 @@ void BaseDialog::paintEvent(QPaintEvent* event)
     // Background widget.
     active_area.setTopLeft(QPoint(0, titlebar_height));
     this->setContentsMargins(0, titlebar_height, 0, 0);
-qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<rect();
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<rect();
     QStyleOption w_opt;
     w_opt.initFrom(this);//可以获取this的qss风格
     w_opt.rect = active_area;

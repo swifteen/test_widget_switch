@@ -46,6 +46,6 @@ void SettingDialog::keyPressEvent(QKeyEvent *event)
 
 void SettingDialog::s_func_trigger(int func_index,const QVariant& data)
 {
-qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<func_index<<data;
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<func_index<<data;
 }
 

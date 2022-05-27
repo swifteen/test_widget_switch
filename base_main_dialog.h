@@ -29,7 +29,6 @@ private slots:
     void s_close_clicked();
     virtual void s_func_trigger(int func_index,const QVariant& data) = 0;
 private:
-    QPushButton* m_pClosePbtn;
     QPoint m_move_point;      //移动的距离
     bool m_bMousePress;       //按下鼠标左键
     StatusBar* m_pStatusBar;
