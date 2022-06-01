@@ -21,15 +21,6 @@ void PreviewDialog::keyPressEvent(QKeyEvent *event)
 
     switch(key)
     {
-    case Qt::Key_F1:
-    case Qt::Key_F2:
-    case Qt::Key_F3:
-    case Qt::Key_F4:
-    case Qt::Key_F5:
-    case Qt::Key_F6:
-    case Qt::Key_F7:
-		handleKeyPressEvent(key);
-        break;
     case Qt::Key_Escape:
         close();
         break;
@@ -47,9 +38,13 @@ void PreviewDialog::s_func_trigger(int func_index,const QVariant& data)
 
         break;
     case FuncBar::FUNC_BAR_F2:
+        break;
     case FuncBar::FUNC_BAR_F3:
+        break;
     case FuncBar::FUNC_BAR_F4:
+        break;
     case FuncBar::FUNC_BAR_F5:
+        break;
     case FuncBar::FUNC_BAR_F6:
 
         break;

@@ -53,12 +53,6 @@ void BaseMainDialog::initFuncBarControl(MainDialogType_e mainWidgetType)
         m_pFuncBar->initFuncBarControl(mainWidgetType);
 }
 
-void BaseMainDialog::handleKeyPressEvent(Qt::Key key)
-{
-    if(m_pFuncBar)
-        m_pFuncBar->handleKeyPressEvent(key);
-}
-
 void BaseMainDialog::s_close_clicked()
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
@@ -121,6 +115,27 @@ void BaseMainDialog::mouseMoveEvent(QMouseEvent* event)
 
 void BaseMainDialog::keyPressEvent(QKeyEvent *event)
 {
+    Qt::Key key = static_cast<Qt::Key>(event->key());
+
+    switch(key)
+    {
+    case Qt::Key_F1:
+    case Qt::Key_F2:
+    case Qt::Key_F3:
+    case Qt::Key_F4:
+    case Qt::Key_F5:
+    case Qt::Key_F6:
+    case Qt::Key_F7:
+    {
+        //F1~F7键转给FuncBar处理
+        if(m_pFuncBar)
+            m_pFuncBar->handleKeyPressEvent(key);
+    }
+        break;
+    default:
+        break;
+    }
+
     //qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<mainWidgetType()<<this<<event<<event->key();
     QWidget::keyPressEvent(event);
 }

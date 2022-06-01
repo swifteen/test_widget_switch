@@ -25,16 +25,6 @@ void SampleDialog::keyPressEvent(QKeyEvent *event)
 
     switch(key)
     {
-    //F1~F7键转给FuncBar处理
-    case Qt::Key_F1:
-    case Qt::Key_F2:
-    case Qt::Key_F3:
-    case Qt::Key_F4:
-    case Qt::Key_F5:
-    case Qt::Key_F6:
-    case Qt::Key_F7:
-		handleKeyPressEvent(key);
-        break;
     default:
         break;
     }
@@ -51,9 +41,13 @@ void SampleDialog::s_func_trigger(int func_index, const QVariant& data)
         openPatientDialog();
         break;
     case FuncBar::FUNC_BAR_F2:
+        break;
     case FuncBar::FUNC_BAR_F3:
+        break;
     case FuncBar::FUNC_BAR_F4:
+        break;
     case FuncBar::FUNC_BAR_F5:
+        break;
     case FuncBar::FUNC_BAR_F6:
         open_fileManager();
         break;

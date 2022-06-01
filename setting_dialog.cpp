@@ -22,15 +22,6 @@ void SettingDialog::keyPressEvent(QKeyEvent *event)
 
     switch(key)
     {
-    case Qt::Key_F1:
-    case Qt::Key_F2:
-    case Qt::Key_F3:
-    case Qt::Key_F4:
-    case Qt::Key_F5:
-    case Qt::Key_F6:
-    case Qt::Key_F7:
-		handleKeyPressEvent(key);
-        break;
     case Qt::Key_Escape:
         close();
         break;

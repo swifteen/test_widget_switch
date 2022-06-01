@@ -7,7 +7,13 @@ FuncBar::FuncBar(QWidget *parent) :
     ui(new Ui::FuncBar)
 {
     ui->setupUi(this);
-    setStyleSheet("*{color: #ff0000;} *{font: normal 36px “微软雅黑”;} QAbstractButton,QLabel{min-height: 50px;}");
+    setStyleSheet("*{color: #ff0000;}"
+                  " *{font: normal 36px “微软雅黑”;}"
+                  "QAbstractButton,QLabel{min-height: 50px;}"
+                  "QAbstractButton:focus{\
+                      border: 5px solid #1AAB1A;  \
+                      outline: none;\
+                  }");
 }
 
 FuncBar::~FuncBar()

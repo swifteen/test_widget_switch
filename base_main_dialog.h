@@ -23,8 +23,6 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
     void keyPressEvent(QKeyEvent *event);
-    //F1~F7键转给FuncBar处理
-	void handleKeyPressEvent(Qt::Key key);
 private:
     void initFuncBarControl(MainDialogType_e mainWidgetType);
 private slots:
