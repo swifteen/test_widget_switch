@@ -13,11 +13,17 @@ SampleWidgetStd::SampleWidgetStd(QWidget* parent)
 
     QStackedLayout* laylout=(QStackedLayout*)ui->stackedWidget->layout();
     laylout->setStackingMode(QStackedLayout::StackAll);//All widgets are visible.
+	
+	m_pWavePlot = new SampleWavePlotStd();	
+	ui->stackedWidget->addWidget(m_pWavePlot);
+	
     //强制显示第一页的提示信息页
     ui->stackedWidget->setCurrentIndex(0);
-	
-	m_pWavePlot = new SampleWavePlotStd();
-	ui->stackedWidget->addWidget(m_pWavePlot);
+    this->setStyleSheet("SampleWidgetStd QLabel {"
+                        "color: #FFFFFF;"/*标题栏文字颜色*/
+                        "font-size: 24px;"/*标题栏文字大小*/
+                        "font-weight:900;}"
+                        );
 }
 
 SampleWidgetStd::~SampleWidgetStd()

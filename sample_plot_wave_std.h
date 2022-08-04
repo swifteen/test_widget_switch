@@ -11,14 +11,15 @@ public:
 	explicit SampleWavePlotStd(QWidget *parent = 0);
 	virtual ~SampleWavePlotStd();
 protected:
-	virtual void resizeEvent(QResizeEvent *event);
+	void paintEvent(QPaintEvent* event);
+	void resizeEvent(QResizeEvent *event);
 private:
 	void initUI();
 	void clearWave();	
 	void setWaveCoordinates();	
 	void drawLeadName(QPainter& painter);
 private:
-    QPixmap* m_wavePixmap;   //波形显示图片
+    QPixmap* m_pWavePixmap;   //波形显示图片
     QPolygon m_sWaveBasePolyon; //用来保存每行的基准坐标
     int m_iMaxWaveHeight;  //每行波形显示时的最大高度
     int m_iMaxWaveWidth;  //每行波形显示时的最大宽度

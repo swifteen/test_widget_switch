@@ -142,6 +142,6 @@ void BaseMainDialog::keyPressEvent(QKeyEvent *event)
 
 void BaseMainDialog::resizeEvent(QResizeEvent *event)
 {
-    //    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<windowTitle();
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<windowTitle()<<event;
     QWidget::resizeEvent(event);
 }

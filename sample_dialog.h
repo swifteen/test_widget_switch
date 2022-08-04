@@ -17,6 +17,7 @@ public:
     SampleDialog(QWidget *parent = nullptr);
     ~SampleDialog();
 protected:
+	void resizeEvent(QResizeEvent *event);
     void keyPressEvent(QKeyEvent *event);
 private slots:
     virtual void s_func_trigger(int func_index,const QVariant& data);

@@ -1,7 +1,8 @@
 #include "sample_plot_wave_std.h"
-
+#include <QDebug>
 SampleWavePlotStd::SampleWavePlotStd(QWidget *parent) :
-	SampleBaseGrid(parent)
+	SampleBaseGrid(parent),
+		m_pWavePixmap(nullptr)
 {
 	initUI();
 }
@@ -15,27 +16,44 @@ void SampleWavePlotStd::initUI()
 	setAutoFillBackground(true);
 }
 
+void SampleWavePlotStd::paintEvent(QPaintEvent* event)
+{
+	Q_UNUSED(event)
+    if(m_pWavePixmap == NULL)
+    {
+        return;
+    }
+
+    //重绘事件
+    QPainter painter(this);
+    painter.drawPixmap(0,0,*m_pWavePixmap); //绘制当前画布
+    painter.end();
+}
+
 void SampleWavePlotStd::resizeEvent(QResizeEvent* event)
 {
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<event;
     //获取波形起始坐标
     setWaveCoordinates();
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
 
     //在m_wavePixmap绘制导联名称
     clearWave();
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
 
     SampleBaseGrid::resizeEvent(event);//调用父类的，使父类完成绘制网格背景
 }
 
 void SampleWavePlotStd::clearWave()
 {
-    if(m_wavePixmap == NULL)
+    if(m_pWavePixmap == NULL)
     {
-        m_wavePixmap = new QPixmap(this->width(), this->height());
-        m_wavePixmap->fill(Qt::transparent);
+        m_pWavePixmap = new QPixmap(this->width(), this->height());
+        m_pWavePixmap->fill(Qt::transparent);
     }
 
     QPainter painter;
-    bool ret = painter.begin(m_wavePixmap);
+    bool ret = painter.begin(m_pWavePixmap);
 
     if(!ret)
     {
@@ -45,14 +63,14 @@ void SampleWavePlotStd::clearWave()
     painter.setCompositionMode(QPainter::CompositionMode_Source);
 
     //擦除当前绘制的区域
-    painter.eraseRect(0, 0, m_wavePixmap->width(),m_wavePixmap->height());
+    painter.eraseRect(0, 0, m_pWavePixmap->width(),m_pWavePixmap->height());
     //还原原来的底色
-    painter.fillRect(0, 0, m_wavePixmap->width(),m_wavePixmap->height(),QColor(0,0,0,0));
+    painter.fillRect(0, 0, m_pWavePixmap->width(),m_pWavePixmap->height(),QColor(0,0,0,0));
     //绘制导联名称
     drawLeadName(painter);
     painter.end();
 
-    this->repaint(0, 0, m_wavePixmap->width(),m_wavePixmap->height());
+    this->repaint(0, 0, m_pWavePixmap->width(),m_pWavePixmap->height());
 }
 
 //设置每行起始的坐标
@@ -88,6 +106,7 @@ void SampleWavePlotStd::drawLeadName(QPainter& painter)
 	    painter.drawText(m_sWaveBasePolyon[i].x(),
 						    m_sWaveBasePolyon[i].y()-m_iMaxWaveHeight/2 + fm.height(),
 						    leadNameLists.at(i));
+	    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<m_sWaveBasePolyon[i]<<leadNameLists.at(i);
     }
 }
 

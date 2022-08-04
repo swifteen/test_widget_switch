@@ -24,6 +24,12 @@ void SampleDialog::setupSampleWidget()
 	layout()->addWidget(m_pSampleWidget);
 }
 
+void SampleDialog::resizeEvent(QResizeEvent *event)
+{
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<event;
+    BaseMainDialog::resizeEvent(event);
+}
+
 void SampleDialog::keyPressEvent(QKeyEvent *event)
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<this<<event<<event->key();

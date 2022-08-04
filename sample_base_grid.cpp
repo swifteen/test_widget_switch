@@ -40,7 +40,9 @@ void SampleBaseGrid::setGridBackground()
 
 void SampleBaseGrid::resizeEvent(QResizeEvent *event)
 {
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<event;
 	setGridBackground();
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
 	QWidget::resizeEvent(event);
 }
 
@@ -54,7 +56,7 @@ QPixmap SampleBaseGrid::proc_paint_grid(int column_grid,int row_grid)
 	painter.fillRect(bg_rect,Qt::black);
 
 	//1、画实线
-	painter.setPen(QPen(QColor(47,49,50), 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+	painter.setPen(QPen(Qt::green, 1, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
 	painter.drawRect(bg_rect);
 	//2、画虚线
 	painter.setPen(QPen(QColor(39,40,41), 1, Qt::DotLine, Qt::RoundCap, Qt::RoundJoin));
@@ -102,7 +104,7 @@ QPixmap SampleBaseGrid::initBgImage()
 
 	X = margins[1];
 
-	pen.setColor(QColor(39,40,41));
+	pen.setColor(QColor("#FF69B4"));
 	pen.setStyle(Qt::DotLine);
 	painter.setPen(pen);
 
@@ -129,7 +131,7 @@ QPixmap SampleBaseGrid::initBgImage()
 	//画实线格式
 	X = margins[1];
 
-	pen.setColor(QColor(47,49,50));
+	pen.setColor(QColor("#FF1493"));
 	pen.setStyle(Qt::SolidLine);  //实线
 	painter.setPen(pen);
 
