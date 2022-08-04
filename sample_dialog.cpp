@@ -1,21 +1,27 @@
 #include "sample_dialog.h"
 #include "ui_sample_dialog.h"
 #include <QDebug>
-#include "patient_dialog.h"
-#include "file_manager_dialog.h"
-#include "setting_dialog.h"
+#include "sample_widget_std.h"
 
 SampleDialog::SampleDialog(QWidget *parent)
     : BaseMainDialog(MAIN_DIALOG_TYPE_SAMPLE,parent)
-    , ui(new Ui::SampleDialog)
+    , ui(new Ui::SampleDialog),
+    m_pSampleWidget(nullptr)
 {
     ui->setupUi(this);
+	setupSampleWidget();
 }
 
 SampleDialog::~SampleDialog()
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
     delete ui;
+}
+
+void SampleDialog::setupSampleWidget()
+{
+	m_pSampleWidget = new SampleWidgetStd();
+	layout()->addWidget(m_pSampleWidget);
 }
 
 void SampleDialog::keyPressEvent(QKeyEvent *event)
@@ -62,21 +68,14 @@ void SampleDialog::s_func_trigger(int func_index, const QVariant& data)
 void SampleDialog::openPatientDialog()
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"enter Patient_Dialog";
-    Patient_Dialog dlg;
-    dlg.exec();
-    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"exit Patient_Dialog";
 }
 
 void SampleDialog::open_fileManager()
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"enter FileManagerDialog";
-    FileManagerDialog dlg;
-    dlg.exec();
-    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"exit FileManagerDialog";
 }
 
 void SampleDialog::open_setting()
 {
-    SettingDialog dlg;
-    dlg.exec();
+
 }
