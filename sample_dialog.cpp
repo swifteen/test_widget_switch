@@ -21,6 +21,8 @@ SampleDialog::~SampleDialog()
 
 void SampleDialog::setupSampleWidget()
 {
+	//设置波形区域大小，frame会自动居中显示
+	ui->frame->setFixedSize(1024,768 - 50 - 50);
 	m_pSampleWidget = new SampleWidgetStd();
 	ui->frame->layout()->addWidget(m_pSampleWidget);
 }
