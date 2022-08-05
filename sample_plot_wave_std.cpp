@@ -19,6 +19,9 @@ void SampleWavePlotStd::initUI()
 void SampleWavePlotStd::paintEvent(QPaintEvent* event)
 {
 	Q_UNUSED(event)
+    //SampleBaseGrid::paintEvent(event);//调用父类的，使父类完成绘制网格背景
+    #if 1
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<rect();
     if(m_pWavePixmap == NULL)
     {
         return;
@@ -28,20 +31,29 @@ void SampleWavePlotStd::paintEvent(QPaintEvent* event)
     QPainter painter(this);
     painter.drawPixmap(0,0,*m_pWavePixmap); //绘制当前画布
     painter.end();
+	#endif
 }
 
 void SampleWavePlotStd::resizeEvent(QResizeEvent* event)
 {
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<event;
+	#if 1
     //获取波形起始坐标
     setWaveCoordinates();
     qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
 
     //在m_wavePixmap绘制导联名称
     clearWave();
-    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__;
-
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<rect();
+#endif
     SampleBaseGrid::resizeEvent(event);//调用父类的，使父类完成绘制网格背景
+}
+
+void SampleWavePlotStd::showEvent(QShowEvent* event)
+{
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<rect();
+
+    SampleBaseGrid::showEvent(event);//调用父类的，使父类完成绘制网格背景
 }
 
 void SampleWavePlotStd::clearWave()
@@ -106,7 +118,7 @@ void SampleWavePlotStd::drawLeadName(QPainter& painter)
 	    painter.drawText(m_sWaveBasePolyon[i].x(),
 						    m_sWaveBasePolyon[i].y()-m_iMaxWaveHeight/2 + fm.height(),
 						    leadNameLists.at(i));
-	    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<m_sWaveBasePolyon[i]<<leadNameLists.at(i);
+	    //qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<m_sWaveBasePolyon[i]<<leadNameLists.at(i);
     }
 }
 

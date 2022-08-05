@@ -10,7 +10,6 @@ SampleWidgetStd::SampleWidgetStd(QWidget* parent)
 {
     ui->setupUi(this);
     setWindowFlags(Qt::FramelessWindowHint);
-
     QStackedLayout* laylout=(QStackedLayout*)ui->stackedWidget->layout();
     laylout->setStackingMode(QStackedLayout::StackAll);//All widgets are visible.
 	
@@ -19,6 +18,7 @@ SampleWidgetStd::SampleWidgetStd(QWidget* parent)
 	
     //强制显示第一页的提示信息页
     ui->stackedWidget->setCurrentIndex(0);
+
     this->setStyleSheet("SampleWidgetStd QLabel {"
                         "color: #FFFFFF;"/*标题栏文字颜色*/
                         "font-size: 24px;"/*标题栏文字大小*/
@@ -74,4 +74,23 @@ void SampleWidgetStd::s_func_trigger(int func_index,int index)
 		Q_UNUSED(index)
 }
 
+void SampleWidgetStd::paintEvent(QPaintEvent* event)
+{
+	Q_UNUSED(event)
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<rect();
+    SampleWidgetBase::paintEvent(event);//调用父类的，使父类完成绘制网格背景
+}
+
+void SampleWidgetStd::resizeEvent(QResizeEvent* event)
+{
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<event;
+    SampleWidgetBase::resizeEvent(event);//调用父类的，使父类完成绘制网格背景
+}
+
+void SampleWidgetStd::showEvent(QShowEvent* event)
+{
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<rect();
+
+    SampleWidgetBase::showEvent(event);//调用父类的，使父类完成绘制网格背景
+}
 

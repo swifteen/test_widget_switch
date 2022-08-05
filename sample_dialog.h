@@ -17,6 +17,7 @@ public:
     SampleDialog(QWidget *parent = nullptr);
     ~SampleDialog();
 protected:
+	void showEvent(QShowEvent* event);
 	void resizeEvent(QResizeEvent *event);
     void keyPressEvent(QKeyEvent *event);
 private slots:

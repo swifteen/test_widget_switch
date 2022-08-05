@@ -9,6 +9,7 @@ SampleDialog::SampleDialog(QWidget *parent)
     m_pSampleWidget(nullptr)
 {
     ui->setupUi(this);
+	
 	setupSampleWidget();
 }
 
@@ -21,7 +22,14 @@ SampleDialog::~SampleDialog()
 void SampleDialog::setupSampleWidget()
 {
 	m_pSampleWidget = new SampleWidgetStd();
-	layout()->addWidget(m_pSampleWidget);
+	ui->frame->layout()->addWidget(m_pSampleWidget);
+}
+
+void SampleDialog::showEvent(QShowEvent* event)
+{
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<rect();
+
+    BaseMainDialog::showEvent(event);//调用父类的，使父类完成绘制网格背景
 }
 
 void SampleDialog::resizeEvent(QResizeEvent *event)

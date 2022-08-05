@@ -60,6 +60,7 @@ void BaseMainDialog::s_close_clicked()
 }
 void BaseMainDialog::paintEvent(QPaintEvent* event)
 {
+    //qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<rect();
     Q_UNUSED(event)
 
     QPainter p(this);
@@ -140,8 +141,15 @@ void BaseMainDialog::keyPressEvent(QKeyEvent *event)
     QWidget::keyPressEvent(event);
 }
 
+void BaseMainDialog::showEvent(QShowEvent* event)
+{
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<rect();
+
+    QWidget::showEvent(event);//调用父类的，使父类完成绘制网格背景
+}
+
 void BaseMainDialog::resizeEvent(QResizeEvent *event)
 {
-    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<windowTitle()<<event;
+    qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<rect()<<windowTitle()<<event;
     QWidget::resizeEvent(event);
 }

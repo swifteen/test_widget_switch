@@ -11,6 +11,7 @@ public:
 	explicit SampleWavePlotStd(QWidget *parent = 0);
 	virtual ~SampleWavePlotStd();
 protected:
+	void showEvent(QShowEvent* event);
 	void paintEvent(QPaintEvent* event);
 	void resizeEvent(QResizeEvent *event);
 private:

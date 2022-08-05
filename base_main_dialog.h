@@ -16,6 +16,7 @@ public:
     explicit BaseMainDialog(MainDialogType_e mainWidgetType,QWidget *parent = nullptr);
     virtual ~BaseMainDialog();
 protected:
+	void showEvent(QShowEvent* event);
     void resizeEvent(QResizeEvent *event);
     void paintEvent(QPaintEvent *event);
     void closeEvent(QCloseEvent *e);

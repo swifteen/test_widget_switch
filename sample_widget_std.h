@@ -37,6 +37,10 @@ public slots:
      * @param index 在控件为combobox时，为其索引值
      */
     void s_func_trigger(int func_index,int index);
+protected:
+	void showEvent(QShowEvent* event);
+	void paintEvent(QPaintEvent* event);
+	void resizeEvent(QResizeEvent *event);
 private:	
     Ui::SampleWidgetStd *ui;
 	SampleWavePlotStd* m_pWavePlot;
