@@ -8,7 +8,7 @@ FuncBar::FuncBar(QWidget *parent) :
 {
     ui->setupUi(this);
     setStyleSheet("*{color: #ff0000;}"
-                  " *{font: normal 36px “微软雅黑”;}"
+                  " *{font: normal 18px “微软雅黑”;}"
                   "QAbstractButton,QLabel{min-height: 50px;}"
                   "QAbstractButton:focus{\
                       border: 5px solid #1AAB1A;  \
@@ -128,7 +128,15 @@ void FuncBar::initFuncBarControl(MainDialogType_e mainWidgetType)
         qDebug()<<__FILE__<<__FUNCTION__<<__LINE__<<"unknow mainWidgetType "<<mainWidgetType;
         break;
     }
-
+	QHBoxLayout* hBoxLayout = qobject_cast<QHBoxLayout*>(layout());
+	if(hBoxLayout)
+	{
+		int count = hBoxLayout->count();
+		for (int i = 0; i < count; ++i)
+		{
+			hBoxLayout->setStretch(i,1);
+		}
+	}
     layout()->setSpacing(10);//设置按钮之间的间距
     layout()->setContentsMargins(48,0,48,3);
 }
