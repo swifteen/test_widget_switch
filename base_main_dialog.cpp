@@ -78,6 +78,7 @@ void BaseMainDialog::paintEvent(QPaintEvent* event)
     w_opt.initFrom(this);//可以获取this的qss风格
     w_opt.rect = active_area;
     style->drawPrimitive(QStyle::PE_Widget, &w_opt, &p, this);
+	QWidget::paintEvent(event);
 }
 
 void BaseMainDialog::closeEvent(QCloseEvent *e)

@@ -1,7 +1,6 @@
 #include "sample_widget_std.h"
 #include "ui_sample_widget_std.h"
 #include <QDebug>
-#include <QStackedLayout>
 
 SampleWidgetStd::SampleWidgetStd(QWidget* parent) 
     : SampleWidgetBase(parent)
@@ -10,20 +9,8 @@ SampleWidgetStd::SampleWidgetStd(QWidget* parent)
 {
     ui->setupUi(this);
     setWindowFlags(Qt::FramelessWindowHint);
-    QStackedLayout* laylout=(QStackedLayout*)ui->stackedWidget->layout();
-    laylout->setStackingMode(QStackedLayout::StackAll);//All widgets are visible.
-	
 	m_pWavePlot = new SampleWavePlotStd();	
-	ui->stackedWidget->addWidget(m_pWavePlot);
-	
-    //强制显示第一页的提示信息页
-    ui->stackedWidget->setCurrentIndex(0);
-
-    this->setStyleSheet("SampleWidgetStd QLabel {"
-                        "color: #FFFFFF;"/*标题栏文字颜色*/
-                        "font-size: 24px;"/*标题栏文字大小*/
-                        "font-weight:900;}"
-                        );
+	layout()->addWidget(m_pWavePlot);	
 }
 
 SampleWidgetStd::~SampleWidgetStd()
